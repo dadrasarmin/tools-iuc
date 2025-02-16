@@ -43,7 +43,10 @@ $confirmedonly
 ]]></token>
     <token name="@CUSTOM_BARCODES_COMMAND@"><![CDATA[
 #if $usher_update_option.choice == 'custom'
-    --barcodes '${usher_update_option.usher_barcodes}'
+    ln -s '${usher_update_option.usher_barcodes}' usher_barcodes.csv &&
+    #set $barcodes_option = '--barcodes usher_barcodes.csv'
+#else
+    #set $barcodes_option = ''
 #end if
 ]]></token>
     <token name="@DASH_COMMAND@"><![CDATA[

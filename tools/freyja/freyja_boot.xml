@@ -12,6 +12,7 @@
     <command detect_errors="exit_code"><![CDATA[
 @RUN_FREYJA_UPDATE_COMMAND@
 @PREPROCESS_VCF_INPUT@
+@CUSTOM_BARCODES_COMMAND@
 freyja boot
     @STANDARD_INPUT_FOR_BOOT@
     --nt \${GALAXY_SLOTS:-4}
@@ -19,7 +20,7 @@ freyja boot
         --nb $nb
     #end if
     --output_base 'boot_output'
-    @CUSTOM_BARCODES_COMMAND@
+    $barcodes_option
     $boxplot_pdf
     ]]></command>
     <inputs>
